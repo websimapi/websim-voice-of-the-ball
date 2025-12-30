@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Voice of the Ball</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "peerjs": "https://esm.sh/peerjs@1.5.2",
+                "qrcode": "https://esm.sh/qrcode@1.5.3"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- Intro / Permission Screen -->
+        <div id="intro-screen" class="screen active">
+            <h1>VOICE OF THE BALL</h1>
+            <p>6DoF P2P Audio Tennis</p>
+            <button id="start-btn" class="big-btn">ENABLE SENSORS</button>
+        </div>
+
+        <!-- Connection Screen -->
+        <div id="connect-screen" class="screen">
+            <div id="host-panel">
+                <h2>Host a Game</h2>
+                <div id="qrcode"></div>
+                <p id="my-id-display">Generating ID...</p>
+                <button id="copy-link-btn" class="secondary-btn">Copy Invite Link</button>
+            </div>
+            <div class="divider">OR</div>
+            <div id="join-panel">
+                <h2>Join a Game</h2>
+                <input type="text" id="join-id-input" placeholder="Paste ID here">
+                <button id="join-btn" class="secondary-btn">Join</button>
+            </div>
+            <p id="connection-status">Waiting for network...</p>
+        </div>
+
+        <!-- Gameplay Screen -->
+        <div id="game-screen" class="screen">
+            <div id="hud">
+                <div class="score-board">
+                    <span id="score-me">0</span> - <span id="score-opp">0</span>
+                </div>
+                <div id="game-message">WAITING</div>
+            </div>
+            
+            <div id="visualizer">
+                <div id="ball-indicator"></div>
+            </div>
+
+            <div id="controls-hint">Flick to Serve</div>
+        </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
